@@ -34,12 +34,26 @@
     <Compile Include="DigitalSolutionsPrototype\settings.py" />
     <Compile Include="DigitalSolutionsPrototype\urls.py" />
     <Compile Include="DigitalSolutionsPrototype\wsgi.py" />
+    <Compile Include="Page1\admin.py" />
+    <Compile Include="Page1\apps.py" />
+    <Compile Include="Page1\migrations\__init__.py" />
+    <Compile Include="Page1\models.py" />
+    <Compile Include="Page1\tests.py" />
+    <Compile Include="Page1\views.py" />
+    <Compile Include="Page1\__init__.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Page1\templates\Page1\unitInformation.html" />
+    <Content Include="Page1\templates\Page1\index.html" />
+    <Content Include="Page1\templates\Page1\settings.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DigitalSolutionsPrototype\" />
+    <Folder Include="Page1\" />
+    <Folder Include="Page1\migrations\" />
+    <Folder Include="Page1\templates\" />
+    <Folder Include="Page1\templates\Page1\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 

@@ -1,0 +1,55 @@
+<body>
+    Teachers:
+    {% if content %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Teaching Area</th>
+        </tr>
+        {% for teach in content %}
+        <tr>
+            <td>{{teach.Name}}</td>
+            <td>{{teach.Email}}</td>
+            <td>{{teach.Area}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    No data!
+    {% endif %}
+
+    <br>
+    <br>
+
+    Units:
+    {% if unit %}
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Accreditation</th>
+            <th>Unit Description</th>
+            <th>Unit Goals</th>
+            <th>Content Descriptions</th>
+        </tr>
+        {% for unit1 in unit %}
+        <tr>
+            <td>{{unit1.Title}}</td>
+            <td>{{unit1.Accreditation}}</td>
+            <td>{{unit1.Unit_Description}}</td>
+            <td>{{unit1.Unit_Goals}}</td>
+            <td>{{unit1.Content_Descriptions}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    No data!
+    {% endif %}
+
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'unitInformation' %}">Unit Information</a>
+    <a href="{% url 'settings' %}">Settings</a>
+
+</body>
+
+
