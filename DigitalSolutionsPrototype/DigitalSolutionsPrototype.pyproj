@@ -36,6 +36,12 @@
     <Compile Include="DigitalSolutionsPrototype\wsgi.py" />
     <Compile Include="Page1\admin.py" />
     <Compile Include="Page1\apps.py" />
+    <Compile Include="Page1\management\commands\importCSV.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Page1\management\commands\removeDuplicates.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Page1\migrations\__init__.py" />
     <Compile Include="Page1\models.py" />
     <Compile Include="Page1\tests.py" />
@@ -51,7 +57,9 @@
   <ItemGroup>
     <Folder Include="DigitalSolutionsPrototype\" />
     <Folder Include="Page1\" />
+    <Folder Include="Page1\management\commands\" />
     <Folder Include="Page1\migrations\" />
+    <Folder Include="Page1\management\" />
     <Folder Include="Page1\templates\" />
     <Folder Include="Page1\templates\Page1\" />
   </ItemGroup>
