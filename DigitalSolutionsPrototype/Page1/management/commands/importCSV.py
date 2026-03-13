@@ -10,12 +10,21 @@ class Command(BaseCommand):
         parser.add_argument("--path", type = str)
 
     def handle(self, *args, **kwargs):
-        
+        createdCount = 0
+        updatedCount = 0
+
         path = kwargs['path']
         with open(path, 'rt', encoding = 'utf-8-sig') as f:
             reader = csv.DictReader(f, dialect = 'excel')
-            count = 0
+
             for row in reader:
-                teacher.objects.create(Name=row["Name"], Email=row["Email"], Area=row["Area"])
-                count += 1
-        print("Added " + str(count) + " teacher(s)")
+                obj, created = teacher.objects.update_or_create(
+                    Email=row["Email"], 
+                    defaults = {"Name" : row["Name"], "Area" : row["Area"]})
+
+                if created:
+                    createdCount += 1
+                else:
+                    updatedCount += 1
+
+        print(f"Created {createdCount} teachers, updated {updatedCount} teachers.")

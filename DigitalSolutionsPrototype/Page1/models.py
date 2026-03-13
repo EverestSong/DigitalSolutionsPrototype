@@ -4,7 +4,7 @@ from django.db import models
 
 class teacher(models.Model):
     Name = models.CharField(max_length = 25)
-    Email = models.CharField(max_length = 40)
+    Email = models.EmailField(max_length = 100, unique=True)
     Area = models.CharField(max_length = 30)
 
 class unit(models.Model):

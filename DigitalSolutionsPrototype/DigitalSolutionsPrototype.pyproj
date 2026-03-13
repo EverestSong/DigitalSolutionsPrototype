@@ -44,6 +44,9 @@
     </Compile>
     <Compile Include="Page1\migrations\__init__.py" />
     <Compile Include="Page1\models.py" />
+    <Compile Include="Page1\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Page1\tests.py" />
     <Compile Include="Page1\views.py" />
     <Compile Include="Page1\__init__.py" />
@@ -52,6 +55,7 @@
     <Content Include="Page1\templates\Page1\unitInformation.html" />
     <Content Include="Page1\templates\Page1\index.html" />
     <Content Include="Page1\templates\Page1\settings.html" />
+    <Content Include="Page1\templates\Page1\input.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>

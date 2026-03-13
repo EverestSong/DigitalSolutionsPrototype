@@ -1,5 +1,6 @@
 <body>
-    Teachers:
+    <h2>Teachers</h2>
+
     {% if content %}
     <table>
         <tr>
@@ -22,7 +23,7 @@
     <br>
     <br>
 
-    Units:
+    <h2>Units</h2>
     {% if unit %}
     <table>
         <tr>
@@ -49,6 +50,7 @@
     <a href="{% url 'index' %}">Home</a>
     <a href="{% url 'unitInformation' %}">Unit Information</a>
     <a href="{% url 'settings' %}">Settings</a>
+    <a href="{% url 'input' %}">Teacher Registration</a>
 
 </body>
 

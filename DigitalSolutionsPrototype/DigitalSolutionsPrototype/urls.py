@@ -28,8 +28,7 @@ urlpatterns = [
     re_path(r'^home$', Page1.views.index, name='home'),
     re_path(r'unitInformation/', Page1.views.unitInformation, name='unitInformation'),
     re_path(r'settings', Page1.views.settings, name='settings'),
-
-    #re_path(r'^settings$', Page1.views.settings, name='settings$'), Faulty line of code
+    re_path(r'input', Page1.views.input, name='input'),
 
     path('admin/', admin.site.urls)
 ]

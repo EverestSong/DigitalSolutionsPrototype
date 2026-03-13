@@ -1,10 +1,10 @@
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.db.models import Min
-from MyApp1.models import teacher
+from Page1.models import teacher
 
 class Command(BaseCommand):
-    help = "This is some help text"
+    help = "List (--list) or remove (--del) duplicate teachers."
     
     def add_arguments(self, parser):
         # Set up 2 arguments so we can have a bit more control over everything
@@ -12,14 +12,11 @@ class Command(BaseCommand):
         parser.add_argument('--del', action='store_true')
     
     def handle(self, *args, **options):
-        
         # Identify field to check for duplicates
         duplicate_field = 'Name' 
         
         # Find IDs of duplicates to keep (the ones with minimum PK)
-        keep_ids = teacher.objects.values(duplicate_field).annotate(
-            min_id=Min('id')
-        ).values_list('min_id', flat=True)
+        keep_ids = teacher.objects.values(duplicate_field).annotate(min_id=Min('id')).values_list('min_id', flat=True)
 
         # Identify duplicates to remove
         to_delete = teacher.objects.exclude(id__in=keep_ids)
