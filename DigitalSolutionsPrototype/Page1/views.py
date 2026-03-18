@@ -3,7 +3,9 @@ from django.http import HttpResponse
 from datetime import datetime
 from .models import teacher
 from .models import unit
+
 from .forms import InputForm
+from .forms import StudentForm
 
 def index(request):
     teach = teacher.objects.all()
@@ -21,10 +23,14 @@ def input(request):
         form = InputForm(request.POST)
 
         if form.is_valid():
-            form.save()
-            return redirect("index")
+            nameInput = request.POST.get('Name', None)
+            emailInput = request.POST.get('Email', None)
+            areaInput = request.POST.get('Area', None)
+
+            teacher.objects.update_or_create(Email=emailInput, defaults = {"Name" : nameInput, "Area" : areaInput}) 
 
     else:
         form = InputForm()
 
-    return render(request, "Page1/input.html", {"form": form})
+    return render(request, "Page1/input.html", {'form': StudentForm()})
+    #return render(request, "Page1/input.html", {"form": form})
