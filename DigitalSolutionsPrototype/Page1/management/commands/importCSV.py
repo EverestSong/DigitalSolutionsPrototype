@@ -18,9 +18,7 @@ class Command(BaseCommand):
             reader = csv.DictReader(f, dialect = 'excel')
 
             for row in reader:
-                obj, created = teacher.objects.update_or_create(
-                    Email=row["Email"], 
-                    defaults = {"Name" : row["Name"], "Area" : row["Area"]})
+                obj, created = teacher.objects.update_or_create(Email=row["Email"], defaults = {"Name" : row["Name"], "Area" : row["Area"]})
 
                 if created:
                     createdCount += 1

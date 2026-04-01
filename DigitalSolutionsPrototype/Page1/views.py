@@ -32,5 +32,5 @@ def input(request):
     else:
         form = InputForm()
 
-    return render(request, "Page1/input.html", {'form': StudentForm()})
-    #return render(request, "Page1/input.html", {"form": form})
+    #return render(request, "Page1/input.html", {'form': StudentForm()})
+    return render(request, "Page1/input.html", {"form": form})
