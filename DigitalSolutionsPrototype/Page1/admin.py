@@ -1,8 +1,10 @@
 from django.contrib import admin
 
-from .models import teacher
-from .models import unit
+from .models import Teacher
+from .models import Student
+from .models import Unit
 
 # Register your models here.
-admin.site.register(teacher)
-admin.site.register(unit)
+admin.site.register(Teacher)
+admin.site.register(Student)
+admin.site.register(Unit)

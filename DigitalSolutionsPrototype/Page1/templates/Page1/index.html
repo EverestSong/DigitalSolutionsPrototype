@@ -1,18 +1,40 @@
 <body>
     <h2>Teachers</h2>
 
-    {% if content %}
+    {% if teachers %}
     <table>
         <tr>
             <th>Name</th>
             <th>Email</th>
             <th>Teaching Area</th>
         </tr>
-        {% for teach in content %}
+        {% for teacher in teachers %}
         <tr>
-            <td>{{teach.Name}}</td>
-            <td>{{teach.Email}}</td>
-            <td>{{teach.Area}}</td>
+            <td>{{teacher.Name}}</td>
+            <td>{{teacher.Email}}</td>
+            <td>{{teacher.Area}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    No data!
+    {% endif %}
+
+    <h2>Students</h2>
+    {% if students %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date of Birth</th>
+            <th>Subject</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{student.Name}}</td>
+            <td>{{student.Email}}</td>
+            <td>{{student.DOB}}</td>
+            <td>{{student.Subjects}}</td>
         </tr>
         {% endfor %}
     </table>
@@ -21,7 +43,7 @@
     {% endif %}
 
     <h2>Units</h2>
-    {% if unit %}
+    {% if units %}
     <table>
         <tr>
             <th>Title</th>
@@ -30,13 +52,13 @@
             <th>Unit Goals</th>
             <th>Content Descriptions</th>
         </tr>
-        {% for unit1 in unit %}
+        {% for unit in units %}
         <tr>
-            <td>{{unit1.Title}}</td>
-            <td>{{unit1.Accreditation}}</td>
-            <td>{{unit1.Unit_Description}}</td>
-            <td>{{unit1.Unit_Goals}}</td>
-            <td>{{unit1.Content_Descriptions}}</td>
+            <td>{{unit.Title}}</td>
+            <td>{{unit.Accreditation}}</td>
+            <td>{{unit.Unit_Description}}</td>
+            <td>{{unit.Unit_Goals}}</td>
+            <td>{{unit.Content_Descriptions}}</td>
         </tr>
         {% endfor %}
     </table>
@@ -47,8 +69,8 @@
     <a href="{% url 'index' %}">Home</a>
     <a href="{% url 'unitInformation' %}">Unit Information</a>
     <a href="{% url 'settings' %}">Settings</a>
-    <a href="{% url 'input' %}">Teacher Registration</a>
-
+    <a href="{% url 'teacherForm' %}">Teacher Registration</a>
+    <a href="{% url 'studentForm' %}">Student Registration</a>
 </body>
 
 
