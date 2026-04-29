@@ -28,7 +28,8 @@ urlpatterns = [
     re_path(r'^home$', Page1.views.index, name='home'),
     re_path(r'unitInformation/', Page1.views.unitInformation, name='unitInformation'),
     re_path(r'settings', Page1.views.settings, name='settings'),
-    re_path(r'input', Page1.views.input, name='input'),
+    re_path(r'teacherForm', Page1.views.teacherForm, name='teacherForm'),
+    re_path(r'studentForm', Page1.views.studentForm, name='studentForm'),
 
     path('admin/', admin.site.urls)
 ]

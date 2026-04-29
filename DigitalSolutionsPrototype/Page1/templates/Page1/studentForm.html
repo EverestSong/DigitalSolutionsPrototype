@@ -1,7 +1,16 @@
-<body>
-    <h2>Settings</h2>
+<html>
+<head>
+    <title>Registration</title>
+</head>
 
-    Settings! Includes accessibility settings.
+<body>
+    <h2>Student Registration Form</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
 
     <br>
     <br>
@@ -12,3 +21,4 @@
     <a href="{% url 'teacherForm' %}">Teacher Registration</a>
     <a href="{% url 'studentForm' %}">Student Registration</a>
 </body>
+</html>

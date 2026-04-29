@@ -4,7 +4,7 @@
 </head>
 
 <body>
-    <h2>Registration Form</h2>
+    <h2>Teacher Registration Form</h2>
 
     <form action="" method="post">
         {% csrf_token %}
@@ -18,6 +18,7 @@
     <a href="{% url 'index' %}">Home</a>
     <a href="{% url 'unitInformation' %}">Unit Information</a>
     <a href="{% url 'settings' %}">Settings</a>
-    <a href="{% url 'input' %}">Teacher Registration</a> 
+    <a href="{% url 'teacherForm' %}">Teacher Registration</a>
+    <a href="{% url 'studentForm' %}">Student Registration</a>
 </body>
 </html>

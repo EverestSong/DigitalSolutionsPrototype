@@ -55,7 +55,8 @@
     <Content Include="Page1\templates\Page1\unitInformation.html" />
     <Content Include="Page1\templates\Page1\index.html" />
     <Content Include="Page1\templates\Page1\settings.html" />
-    <Content Include="Page1\templates\Page1\input.html" />
+    <Content Include="Page1\templates\Page1\teacherForm.html" />
+    <Content Include="Page1\templates\Page1\studentForm.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
