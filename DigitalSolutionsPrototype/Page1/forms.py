@@ -10,8 +10,10 @@ class TeacherForm(forms.ModelForm):
         fields = ['Name', 'Email', 'Area']
 
 class StudentForm(forms.ModelForm):
-    subjects = [('Mathematical Applications', 'Mathematical Applications'), ('Mathematical Methods', 'Mathematical Methods'),
-                ('Specialist Methods', 'Specialist Methods'), ('Specialist Mathematics', 'Specialist Mathematics')]
+    subjects = [('Mathematical Applications', 'Mathematical Applications'), 
+                ('Mathematical Methods', 'Mathematical Methods'),
+                ('Specialist Methods', 'Specialist Methods'), 
+                ('Specialist Mathematics', 'Specialist Mathematics')]
 
     Name = models.CharField(max_length = 25)
     Email = models.EmailField(max_length = 100, unique=True)

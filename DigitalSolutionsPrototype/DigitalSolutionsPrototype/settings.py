@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Page1',
+    'bootstrap5',
 ]
 
 # Middleware framework

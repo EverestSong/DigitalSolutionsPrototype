@@ -10,5 +10,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RenameField(model_name='student',old_name='DOB2', new_name='DOB')
+        #migrations.RenameField(model_name='student',old_name='DOB2', new_name='DOB')
     ]
