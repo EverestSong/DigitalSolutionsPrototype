@@ -30,6 +30,7 @@ urlpatterns = [
     re_path(r'settings', Page1.views.settings, name='settings'),
     re_path(r'teacherForm', Page1.views.teacherForm, name='teacherForm'),
     re_path(r'studentForm', Page1.views.studentForm, name='studentForm'),
+    path('report/', Page1.views.report, name='report'),
 
     path('admin/', admin.site.urls)
 ]

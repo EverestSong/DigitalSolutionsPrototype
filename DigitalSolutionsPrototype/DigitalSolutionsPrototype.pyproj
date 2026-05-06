@@ -58,9 +58,11 @@
     <Content Include="Page1\templates\Page1\teacherForm.html" />
     <Content Include="Page1\templates\Page1\studentForm.html" />
     <Content Include="requirements.txt" />
+    <Content Include="static\DigitalSolutions.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DigitalSolutionsPrototype\" />
+    <Folder Include="static\" />
     <Folder Include="Page1\" />
     <Folder Include="Page1\management\commands\" />
     <Folder Include="Page1\migrations\" />
