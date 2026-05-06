@@ -1,6 +1,6 @@
 from django import forms
 from .models import Teacher
-from .models import Student
+from .models import Student 
 
 from django.db import models
 

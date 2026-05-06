@@ -77,7 +77,7 @@ def report(request):
 
         buffer = BytesIO()
         merger.write(buffer)
-        buffer.seek(0)
+        buffer.seek(0) 
 
         response = FileResponse(buffer, as_attachment=True, filename="attachment.pdf")
 
