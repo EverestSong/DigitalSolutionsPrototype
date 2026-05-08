@@ -1,6 +1,7 @@
-from django import forms
-from .models import Teacher
+from django import forms 
+from .models import Teacher 
 from .models import Student 
+from .models import Unit 
 
 from django.db import models
 
@@ -10,6 +11,9 @@ class TeacherForm(forms.ModelForm):
         fields = ['Name', 'Email', 'Area']
 
 class StudentForm(forms.ModelForm):
+    category = forms.ModelChoiceField(queryset=Unit.objects.all(), empty_label="---------")
+
+    '''
     subjects = [('Mathematical Applications', 'Mathematical Applications'), 
                 ('Mathematical Methods', 'Mathematical Methods'),
                 ('Specialist Methods', 'Specialist Methods'), 
@@ -19,6 +23,7 @@ class StudentForm(forms.ModelForm):
     Email = models.EmailField(max_length = 100, unique=True)
     DOB = forms.DateField()
     Subjects = models.CharField(choices = subjects, null = True, blank = True, max_length = 30) 
+    '''
 
     class Meta:
         model = Student

@@ -1,4 +1,4 @@
-#from msilib.schema import File
+#from msilib.schema import File 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from datetime import datetime
@@ -89,12 +89,12 @@ def report(request):
 def generate_pdf():
     buffer = BytesIO()
     p = canvas.Canvas(buffer)
-    lines = [("Name: ", "Teaching Area: ")]
+    lines = [("Name: ", "Email: ", "Teaching Area: ")]
 
     teachers = Teacher.objects.all()
 
     for teacher in teachers:
-        lines.append((teacher.Name, teacher.Area))
+        lines.append((teacher.Name, teacher.Email, teacher.Area))
 
     table = Table(lines)
     table.wrapOn(p, 300, 200)
