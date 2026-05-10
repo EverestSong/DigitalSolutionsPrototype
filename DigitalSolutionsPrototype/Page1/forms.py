@@ -1,4 +1,5 @@
 from django import forms 
+from django import forms
 from .models import Teacher 
 from .models import Student 
 from .models import Unit 
@@ -11,7 +12,7 @@ class TeacherForm(forms.ModelForm):
         fields = ['Name', 'Email', 'Area']
 
 class StudentForm(forms.ModelForm):
-    category = forms.ModelChoiceField(queryset=Unit.objects.all(), empty_label="---------")
+    category = forms.ModelChoiceField(queryset=Unit.objects.all(), empty_label="---------") 
 
     '''
     subjects = [('Mathematical Applications', 'Mathematical Applications'), 
