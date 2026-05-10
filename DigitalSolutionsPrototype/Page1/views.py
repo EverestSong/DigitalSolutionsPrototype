@@ -1,5 +1,5 @@
-#from msilib.schema import File 
-from django.shortcuts import render, redirect
+#from msilib.schema import File
+from django.shortcuts import render, redirect 
 from django.http import HttpResponse
 from datetime import datetime
 
@@ -12,9 +12,10 @@ from .forms import StudentForm
 
 from pypdf import PdfWriter, PdfReader
 from reportlab.pdfgen import canvas
-from reportlab.platypus import Table
+from reportlab.platypus import Table, TableStyle
 from django.http import FileResponse
 from django.contrib.staticfiles.storage import staticfiles_storage
+from reportlab.lib import colors
 from io import BytesIO
 
 def index(request):
@@ -89,17 +90,45 @@ def report(request):
 def generate_pdf():
     buffer = BytesIO()
     p = canvas.Canvas(buffer)
-    lines = [("Name: ", "Email: ", "Teaching Area: ")]
-
+    
+    # Teacher Data
     teachers = Teacher.objects.all()
+    teacherLines = [("Name: ", "Email: ", "Teaching Area: ")]
 
     for teacher in teachers:
-        lines.append((teacher.Name, teacher.Email, teacher.Area))
+        teacherLines.append((teacher.Name, teacher.Email, teacher.Area))
 
-    table = Table(lines)
-    table.wrapOn(p, 300, 200)
-    table.drawOn(p, 10, 740)
+    teacherTable = Table(teacherLines)
 
+    teacherTable.setStyle(TableStyle([
+        ("GRID", (0, 0), (-1, -1), 1, colors.black),
+        ("PADDING", (0, 0), (-1, -1), 5),
+        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor('#a8c5ff')),
+        ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold")]))
+
+    teacherTable.wrapOn(p, 500, 700)
+    teacherTable.drawOn(p, 10, 580)
+
+    # Student Data
+    students = Student.objects.all()
+    studentLines = [("Name: ", "Email: ", "DOB: ", "Subjects: ")]
+
+    for student in students:
+        subjects = ", ".join(subject.Name for subject in student.Subjects.all())
+        studentLines.append((student.Name, student.Email, student.DOB.strftime("%d/%m/%Y"), subjects))
+
+    studentTable = Table(studentLines)
+
+    studentTable.setStyle(TableStyle([
+        ("GRID", (0, 0), (-1, -1), 1, colors.black),
+        ("PADDING", (0, 0), (-1, -1), 5),
+        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor('#a8c5ff')),
+        ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold")]))
+
+    studentTable.wrapOn(p, 500, 700)
+    studentTable.drawOn(p, 10, 500 - len(teacherLines) * 5)
+
+    p.drawImage("dc.png", 10, 730, width=200, height=100)
     p.showPage()
     p.save()
 
